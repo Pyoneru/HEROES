@@ -10,6 +10,7 @@ import {HeroDetailComponent} from './hero-detail.component';
 import { RouterModule } from '@angular/router';
 import {DashboardComponent} from './dashboard.component';
 import {HeroService} from './hero.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,8 +21,9 @@ import {HeroService} from './hero.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [HeroService],
   bootstrap: [AppComponent]

@@ -1,0 +1,32 @@
+nav {
+  background-color: #4D5D6C;
+  color: #CCD0CD;
+  font-family: Arial;
+  width: 100%;
+  padding: 15px;
+}
+label {
+  font-size: 24px;
+}
+
+a {
+
+  background-color: #3CBD6C;
+  color: white;
+  text-decoration: none;
+
+  /*position*/
+  text-align: center;
+  margin-top: -5px;
+  margin-right: 20px;
+  padding: 10px;
+  float: right;
+}
+
+a:hover{
+  background-color: #4DCE7D;
+}
+
+a:visited {
+  color: white;
+}

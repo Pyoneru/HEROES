@@ -7,7 +7,8 @@ const heroRoutes: Routes = [
   // Default page
   {
     path: '',
-    redirectTo: '#'
+    redirectTo: '#',
+    pathMatch: "full"
   },
   // Hero List path
   {
@@ -31,9 +32,6 @@ const heroRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(heroRoutes)
-  ],
-  exports: [
-    HeroRoutesModule
   ]
 })
 export class HeroRoutesModule { }

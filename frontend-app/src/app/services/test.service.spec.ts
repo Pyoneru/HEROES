@@ -1,19 +1,30 @@
-import { TestBed } from '@angular/core/testing';
+import {async, inject, TestBed} from '@angular/core/testing';
 
 import { TestService } from './test.service';
 import {Hero} from "../model/hero";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 describe('TestService', () => {
   let service: TestService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientModule],
+      providers: [TestService]
+    });
     service = TestBed.inject(TestService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('test data are loaded', () => {
+    service.loadTestData().then( data => {
+      let heroes: Hero[] = data as Hero[];
+      expect(10).toBe(heroes.length);
+    })
+  })
 
   it('should add hero', () => {
     // Add new hero

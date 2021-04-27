@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Hero} from "../model/hero";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,12 @@ export class TestService {
 
   idCounter: number = 0;
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+  }
+
+  loadTestData(): Promise<any> {
+    return this.http.get("/assets.data.json").toPromise();
+  }
 
   /**
    * Get all heroes

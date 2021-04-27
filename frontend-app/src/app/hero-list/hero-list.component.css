@@ -1,0 +1,52 @@
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  width: 95%;
+  text-align: left;
+  border-spacing: 0;
+}
+.table-title{
+  background-color: #CCD0CD;
+  color: #2C4157;
+  width: 100%;
+}
+tr > td:last-child {
+  text-align: right;
+  width: 1%;
+  white-space: nowrap;
+}
+tr > td:first-child {
+  width: 1%;
+  padding-right: 20px;
+}
+td {
+  padding: 15px;
+  color: #CCD0CD;
+  font-size: 20px;
+}
+
+.table-title > td{
+  color: #4D5D6C;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  text-decoration: none;
+}
+
+button:hover{
+  background-color: #D00;
+  cursor: pointer;
+}
+
+.hero-list:hover{
+  background-color: #3D5268;
+  cursor: pointer;
+}
+

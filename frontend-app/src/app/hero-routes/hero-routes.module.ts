@@ -2,22 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {AppComponent} from "../app.component";
+import {HeroListComponent} from "../hero-list/hero-list.component";
 
 const heroRoutes: Routes = [
-  // Default page
-  {
-    path: '',
-    redirectTo: '#',
-    pathMatch: "full"
-  },
   // Hero List path
   {
-    path: "#",
-    component: AppComponent // ToDo: Change Component for Hero List component
+    path: '',
+    component: HeroListComponent // ToDo: Change Component for Hero List component
   },
   // New/Edit hero path
   {
-    path: '#/hero/:id',
+    path: 'hero/:id',
     component: AppComponent // ToDo: Change Component for New/Edit Hero component.
   },
   // Error path
@@ -32,6 +27,9 @@ const heroRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(heroRoutes)
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class HeroRoutesModule { }

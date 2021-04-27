@@ -6,11 +6,14 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {HeroRoutesModule} from "./hero-routes/hero-routes.module";
 import { NavComponent } from './nav/nav.component';
+import { HeroListComponent } from './hero-list/hero-list.component';
+import {TestService} from "./services/test.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    HeroListComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +21,7 @@ import { NavComponent } from './nav/nav.component';
     HttpClientModule,
     HeroRoutesModule
   ],
-  providers: [],
+  providers: [TestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

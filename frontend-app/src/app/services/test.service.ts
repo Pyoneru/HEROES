@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {Hero} from "../model/hero";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
-export class TestService {
+export class TestService{
 
   /**
    * Heroes 'db'
@@ -15,10 +15,16 @@ export class TestService {
   idCounter: number = 0;
 
   constructor(private http: HttpClient) {
+    this.loadTestData().then(data => {
+      let arrHero: Hero[] = data as Hero[];
+      for(let hero of arrHero){
+        this.create(hero);
+      }
+    });
   }
 
   loadTestData(): Promise<any> {
-    return this.http.get("/assets.data.json").toPromise();
+    return this.http.get("/assets/data.json").toPromise();
   }
 
   /**

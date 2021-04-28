@@ -2,14 +2,15 @@ import {async, inject, TestBed} from '@angular/core/testing';
 
 import { TestService } from './test.service';
 import {Hero} from "../model/hero";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
+import {HttpClient} from "@angular/common/http";
 
 describe('TestService', () => {
   let service: TestService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule],
+      imports: [HttpClientTestingModule],
       providers: [TestService]
     });
     service = TestBed.inject(TestService);
@@ -69,6 +70,23 @@ describe('TestService', () => {
       hero = data;
       expect(newHero.name).toEqual(data.name);
     });
+  })
+
+  it("get hero with bad id should return null", () => {
+    let counterId: number = service.idCounter;
+
+    // Add new hero
+    let hero: Hero = {
+      id: -1,
+      name: "Yellow hero"
+    }
+    service.create(hero);
+
+    let badId: number = counterId + 100;
+
+    service.getById(badId).then( bad => {
+      expect(bad).toBeNull();
+    })
   })
 
   it('deleted hero should be removed from array', () =>{

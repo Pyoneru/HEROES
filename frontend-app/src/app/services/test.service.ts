@@ -1,11 +1,13 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Hero} from "../model/hero";
 import {HttpClient} from "@angular/common/http";
+import {CRUDService} from "./CRUDService";
+import {throwError} from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class TestService{
+export class TestService implements CRUDService{
 
   /**
    * Heroes 'db'
@@ -39,25 +41,48 @@ export class TestService{
    * @param id
    */
   getById(id: number): Promise<Hero>{
-    return this.getAll().then( heroes => heroes.find(hero => hero.id === id));
+    let hero = this.heroes.find(h => h.id == id);
+    if(hero == null){
+      return Promise.resolve(null);
+    }
+    return Promise.resolve(hero);
   }
 
-  create(hero: Hero): void{
+  /**
+   * Add hero to hero list
+   * @param hero
+   */
+  create(hero: Hero): Promise<any>{
     hero.id = this.idCounter;
     this.idCounter++;
     this.heroes.push(hero);
+    return Promise.resolve(hero.id);
   }
 
-  update(id: number, heroName: string): void{
-    this.heroes.find(hero => hero.id === id).name = heroName;
+  /**
+   * Update hero name with given id.
+   * @param id
+   * @param heroName
+   */
+  update(id: number, heroName: string): Promise<any>{
+    let hero = this.heroes.find(hero => hero.id === id);
+    if(hero == null){
+      return Promise.resolve(throwError("Not found with id: " + id))
+    }
+    return Promise.resolve("Updated")
   }
 
-  delete(id: number): void{
+  /**
+   * Delete hero by his id from list and clear list from null element.
+   * @param id
+   */
+  delete(id: number): Promise<any> {
     let hero: Hero = this.heroes.find(h => h.id === id);
     const index = this.heroes.indexOf(hero, 0);
     if(index > -1){
       delete this.heroes[index];
       this.heroes = this.heroes.filter(hero => {return hero != null});
     }
+    return Promise.resolve("deleted");
   }
 }

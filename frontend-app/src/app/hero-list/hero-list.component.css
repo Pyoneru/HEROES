@@ -1,41 +1,60 @@
-
 table {
+  /* Center table */
   margin-left: auto;
   margin-right: auto;
+
+  /*Space from navigation*/
   margin-top: 3%;
+
+  /*Fill width content to 95% */
   width: 95%;
-  text-align: left;
+
+  /*Remove spacing between columns*/
   border-spacing: 0;
 }
+
+/* Configuration for first row (title row) */
 .table-title{
   background-color: #CCD0CD;
   color: #2C4157;
-  width: 100%;
 }
+
+/* Special CSS for last column*/
 tr > td:last-child {
+  /*Display from right side*/
   text-align: right;
+
+  /*Fill size to content*/
   width: 1%;
   white-space: nowrap;
 }
+
+/* Special CSS for first column*/
 tr > td:first-child {
+  /*Fill size to content*/
   width: 1%;
+  white-space: nowrap;
+
   padding-right: 20px;
 }
+/*Config every row*/
 td {
-  padding: 15px;
   color: #CCD0CD;
+  padding: 15px;
   font-size: 20px;
 }
-
+/* Different config for first row (title row)*/
 .table-title > td{
   color: #4D5D6C;
   font-size: 16px;
 }
 
 button {
-  padding: 10px;
   background-color: red;
   color: white;
+  padding: 10px;
+
+  /*Remove button style*/
   border: none;
   text-decoration: none;
 }

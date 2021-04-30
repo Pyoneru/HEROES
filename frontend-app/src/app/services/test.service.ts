@@ -19,6 +19,14 @@ export class TestService implements CRUDService{
   errorMessage: string = 'Can not find hero with id: ';
 
   constructor(private http: HttpClient) {
+    this.loadTestData().then(data => {
+      const heroes: Hero[] = data as Hero[];
+      heroes.forEach( hero => {
+        hero.id = this.idCounter;
+        this.idCounter++;
+        this.heroes.push(hero);
+      })
+    })
   }
 
   loadTestData(): Promise<any> {

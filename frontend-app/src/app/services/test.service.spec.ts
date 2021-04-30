@@ -3,6 +3,7 @@ import {TestBed} from '@angular/core/testing';
 import { TestService } from './test.service';
 import {HttpClientModule, HttpClient} from "@angular/common/http";
 import {Hero} from "../model/hero";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('TestService', () => {
   let service: TestService;
@@ -121,7 +122,7 @@ describe('TestService', () => {
 
         service.delete(id)
           .then(hero => {
-            expect(service.heroes.find(h => h.name === name)).not.toBeTruthy();
+            expect(service.heroes.find(h => h.id === id && h.name === name)).not.toBeTruthy();
             done();
           });
       })

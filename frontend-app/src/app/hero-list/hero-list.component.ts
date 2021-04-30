@@ -44,7 +44,12 @@ export class HeroListComponent implements OnInit, DoCheck{
    * @param hero
    */
   deleteHero(hero: Hero) {
-    this.test.delete(hero.id);
+    this.test.delete(hero.id)
+      .then( hero => {
+          console.log('Deleted hero', hero);
+      })
+      .catch(error => console.log(error));
+
     this.heroes = this.heroes.filter(hero => {return hero != null}); // Clear list to avoid a error in console logs.
     this.isDeleted = true;
   }

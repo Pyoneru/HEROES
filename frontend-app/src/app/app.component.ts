@@ -6,21 +6,5 @@ import {TestService} from "./services/test.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-
-  constructor(private service: TestService) {
-  }
-
-  ngOnInit(): void {
-    this.service.loadTestData()
-      .then(heroes => {
-        heroes.forEach(hero => {
-          hero.id = this.service.idCounter;
-          this.service.idCounter++;
-          this.service.heroes.push(hero);
-        });
-      }).catch(error => console.log(error));
-  }
-
-
+export class AppComponent {
 }

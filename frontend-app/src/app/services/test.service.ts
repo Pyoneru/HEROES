@@ -16,17 +16,13 @@ export class TestService implements CRUDService{
 
   idCounter: number = 0;
 
+  errorMessage: string = 'Can not find hero with id: ';
+
   constructor(private http: HttpClient) {
-    this.loadTestData().then(data => {
-      let arrHero: Hero[] = data as Hero[];
-      for(let hero of arrHero){
-        this.create(hero);
-      }
-    });
   }
 
   loadTestData(): Promise<any> {
-    return this.http.get("/assets/data.json").toPromise();
+    return this.http.get('/assets/data.json').toPromise();
   }
 
   /**
@@ -41,22 +37,27 @@ export class TestService implements CRUDService{
    * @param id
    */
   getById(id: number): Promise<Hero>{
-    let hero = this.heroes.find(h => h.id == id);
-    if(hero == null){
-      return Promise.resolve(null);
-    }
-    return Promise.resolve(hero);
+    return new Promise<Hero>((resolve, reject) => {
+      const hero = this.heroes.find(h => h.id === id);
+      if (hero){
+        return resolve(hero);
+      }else{
+        reject(new Error(this.errorMessage + id));
+      }
+    });
   }
 
   /**
    * Add hero to hero list
    * @param hero
    */
-  create(hero: Hero): Promise<any>{
-    hero.id = this.idCounter;
-    this.idCounter++;
-    this.heroes.push(hero);
-    return Promise.resolve(hero.id);
+  create(hero: Hero): Promise<Hero>{
+    return new Promise((resolve) => {
+      hero.id = this.idCounter;
+      this.idCounter++;
+      this.heroes.push(hero);
+      resolve(hero);
+    });
   }
 
   /**
@@ -64,25 +65,35 @@ export class TestService implements CRUDService{
    * @param id
    * @param heroName
    */
-  update(id: number, heroName: string): Promise<any>{
-    let hero = this.heroes.find(hero => hero.id === id);
-    if(hero == null){
-      return Promise.resolve(throwError("Not found with id: " + id))
-    }
-    return Promise.resolve("Updated")
+  update(id: number, heroName: string): Promise<Hero>{
+    return new Promise((resolve, reject) => {
+      const hero = this.heroes.find(h => h.id === id);
+      if (hero){
+        hero.name = heroName;
+        resolve(hero);
+      }else{
+        reject(new Error(this.errorMessage + id));
+      }
+    });
   }
 
   /**
    * Delete hero by his id from list and clear list from null element.
    * @param id
    */
-  delete(id: number): Promise<any> {
-    let hero: Hero = this.heroes.find(h => h.id === id);
-    const index = this.heroes.indexOf(hero, 0);
-    if(index > -1){
-      delete this.heroes[index];
-      this.heroes = this.heroes.filter(hero => {return hero != null});
-    }
-    return Promise.resolve("deleted");
+  delete(id: number): Promise<Hero> {
+    return new Promise((resolve, reject) => {
+      const hero = this.heroes.find(h => h.id === id);
+      if (hero){
+        const index = this.heroes.indexOf(hero, 0);
+        // if hero was found before, then i do not check index is bigger then -1
+        delete this.heroes[index];
+        // filters array from null elements
+        this.heroes = this.heroes.filter(h => hero != null);
+        resolve(hero);
+      }else{
+        reject(new Error(this.errorMessage + id));
+      }
+    });
   }
 }

@@ -15,7 +15,7 @@ export class HeroListComponent implements OnInit, DoCheck{
   tableColumnAction: string = "Action";
 
   // Hero list
-  heroes: Hero[];
+  heroes: Hero[] = [];
 
   // Flag to checking if any hero was deleted.
   isDeleted: boolean = false;

@@ -1,0 +1,12 @@
+[
+  { "id": 1,  "name": "Red Hero"      },
+  { "id": 2,  "name": "Green Hero"    },
+  { "id": 3,  "name": "Blue Hero"     },
+  { "id": 4,  "name": "Alpha Hero"    },
+  { "id": 5,  "name": "Magenta Hero"  },
+  { "id": 6,  "name": "Gold Hero"     },
+  { "id": 7,  "name": "Orange Hero"   },
+  { "id": 8,  "name": "White Hero"    },
+  { "id": 9,  "name": "Black Hero"    },
+  { "id": 10, "name": "Silver Hero"   }
+]

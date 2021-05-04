@@ -1,0 +1,60 @@
+/*Table hero list*/
+
+/* Special CSS for first column*/
+.table-hero-list > tr > td:first-child {
+  /*Fill size to content*/
+  width: 1%;
+  white-space: nowrap;
+
+  padding-right: 20px;
+}
+
+/* Special CSS for last column*/
+.table-hero-list > tr > td:last-child {
+  /*Display from right side*/
+  text-align: right;
+
+  /*Fill size to content*/
+  width: 1%;
+  white-space: nowrap;
+}
+
+/*Config every row*/
+.table-hero-list > tr > td{
+  color: #CCD0CD;
+  padding: 15px;
+  font-size: 20px;
+}
+
+/*row-title*/
+
+/* Configuration for first row */
+.table-hero-list > tr:first-child > td {
+  background-color: #CCD0CD;
+  color: #2C4157;
+}
+
+/*Hero List picker*/
+
+.hero-list:hover{
+  background-color: #3D5268;
+  cursor: pointer;
+}
+
+/*Delete button*/
+
+.button-delete-hero {
+  background-color: red;
+  color: white;
+  padding: 10px;
+
+  /*Remove button style*/
+  border: none;
+  text-decoration: none;
+}
+
+.button-delete-hero:hover{
+  background-color: #D00;
+  cursor: pointer;
+}
+

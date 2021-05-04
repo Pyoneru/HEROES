@@ -1,0 +1,72 @@
+/*Table edit hero*/
+
+/* Special CSS for first column*/
+.table-edit-hero > tr > td:first-child {
+  /*Fill size to content*/
+  width: 1%;
+  white-space: nowrap;
+
+  padding-right: 20px;
+}
+
+/*Config every row*/
+.table-edit-hero > tr > td {
+  color: #CCD0CD;
+  padding: 15px;
+  font-size: 20px;
+}
+
+/*First row*/
+
+.table-edit-hero > tr:first-child > td {
+  background-color: #CCD0CD;
+  color: #2C4157;
+}
+
+/*Hero name input*/
+
+.input-hero-name {
+  padding: 10px;
+  font-size: 16px;
+  width: 99%;
+}
+
+/*Button row*/
+
+.row-button > td {
+  text-align: right;
+  border-top: 1px solid black;
+}
+
+.row-button > td > button {
+  padding: 10px;
+  font-size: 20px;
+  margin-right: 10px;
+  color: white;
+  border: none;
+  text-decoration: none;
+}
+
+.row-button > td > button:hover{
+  cursor: pointer;
+}
+
+/*Delete button*/
+
+.button-delete {
+  background-color: red;
+}
+
+.button-delete:hover {
+  background-color: #D00;
+}
+
+/*Save button*/
+
+.button-save {
+  background-color: #E5522E;
+}
+
+.button-save:hover {
+  background-color: #D4411D;
+}

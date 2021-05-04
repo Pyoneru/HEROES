@@ -1,0 +1,19 @@
+<table class="table-hero-list">
+  <!--  Title row -->
+  <tr>
+    <td>{{tableColumnId}}</td>
+    <td>{{tableColumnName}}</td>
+    <td>{{tableColumnAction}}</td>
+  </tr>
+
+  <tr *ngFor="let hero of heroes">
+    <td>{{hero.id}}</td>
+    <td class="hero-list" (click)="editHero(hero)">{{hero.name}}</td>
+    <td>
+      <button class="button-delete-hero" (click)="deleteHero(hero)">
+        <i class="fas fa-trash-alt"></i>
+      </button>
+    </td>
+  </tr>
+
+</table>

@@ -1,0 +1,42 @@
+nav {
+  background-color: #4D5D6C;
+  color: #CCD0CD;
+  width: 100%;
+  padding: 15px;
+}
+
+.nav-title {
+  font-size: 24px;
+  text-decoration: none;
+  color: #CCD0CD;
+}
+
+.nav-title:visited {
+  color: #CCD0CD;
+}
+
+.nav-title:hover {
+  color: #DDE1DE;
+}
+
+.add-hero {
+  background-color: #3CBD6C;
+  color: white;
+  text-decoration: none;
+
+  /* center position */
+  margin-top: -5px;
+  margin-right: 20px;
+  padding: 10px;
+
+  /* Display from right side*/
+  float: right;
+}
+
+.add-hero:hover{
+  background-color: #4DCE7D;
+}
+
+.add-hero:visited {
+  color: white;
+}

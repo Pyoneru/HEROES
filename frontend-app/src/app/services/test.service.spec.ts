@@ -70,8 +70,8 @@ describe('TestService', () => {
       .then(saved => {
         expect(service.heroes.includes(saved)).toBeTrue();
         done();
-      })
-  })
+      });
+  });
 
   it('new added hero should has id equal to idCounter', (done) => {
     const newHero: Hero = {
@@ -99,7 +99,7 @@ describe('TestService', () => {
             expect(service.heroes[2].name).toEqual(newName);
             done();
           });
-      })
+      });
   });
 
   it('get hero with bad id should throw error', (done) => {
@@ -110,8 +110,8 @@ describe('TestService', () => {
           .catch( error => {
             expect(error.message).toEqual(service.errorMessage + badId);
             done();
-          })
-      })
+          });
+      });
   });
 
   it('deleted hero should be removed from array', (done) => {
@@ -125,7 +125,7 @@ describe('TestService', () => {
             expect(service.heroes.find(h => h.id === id && h.name === name)).not.toBeTruthy();
             done();
           });
-      })
+      });
   });
 });
 

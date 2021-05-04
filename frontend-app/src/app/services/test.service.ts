@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Hero} from "../model/hero";
 import {HttpClient} from "@angular/common/http";
 import {CRUDService} from "./CRUDService";
-import {throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root',

@@ -20,7 +20,7 @@ const heroRoutes: Routes = [
     path: '**',
     component: AppComponent // ToDo: Change Component for Error component.
   }
-]
+];
 
 @NgModule({
   declarations: [],

@@ -1,0 +1,16 @@
+h1 {
+  text-align: center;
+  color: red;
+}
+
+h1 > a {
+  color: white;
+}
+
+h1 > a:visited {
+  color: #AAA;
+}
+
+h1 > a:hover {
+  color: #EEE;
+}

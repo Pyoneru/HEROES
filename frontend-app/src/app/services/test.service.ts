@@ -45,7 +45,7 @@ export class TestService implements CRUDService{
    */
   getById(id: number): Promise<Hero>{
     return new Promise<Hero>((resolve, reject) => {
-      const hero = this.heroes.find(h => h.id === id);
+      const hero = this.heroes.find(h => h.id == id);
       if (hero){
         return resolve(hero);
       }else{

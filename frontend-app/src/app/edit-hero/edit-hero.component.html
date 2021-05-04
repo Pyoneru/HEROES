@@ -1,17 +1,21 @@
 <table class="table-edit-hero">
+
   <tr>
     <td>{{tableColumnId}}</td>
     <td>{{tableColumnDetails}}</td>
   </tr>
+
   <tr *ngIf="hero">
     <td>{{hero.id | idNaN }}</td>
     <td><input class="input-hero-name" [(ngModel)]="hero.name"></td>
   </tr>
+
   <tr class="row-button" *ngIf="hero">
     <td></td>
     <td>
-      <button class="button-delete" (click)="saveHero()"><i class="fas fa-ban"></i></button>
-      <button class="button-save" (click)="deleteHero()"><i class="fas fa-save"></i></button>
+      <button class="button-delete" (click)="navigateToHeroList()"><i class="fas fa-ban"></i></button>
+      <button class="button-save" (click)="saveHero()"><i class="fas fa-save"></i></button>
     </td>
   </tr>
+
 </table>

@@ -16,6 +16,10 @@ const heroRoutes: Routes = [
     path: 'hero/:id',
     component: EditHeroComponent
   },
+  {
+    path: 'hero',
+    component: EditHeroComponent
+  },
   // Error path
   {
     path: '**',

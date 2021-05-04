@@ -19,18 +19,18 @@ describe('IdNaNPipe', () => {
   it('if id is Nan should return "-"', () => {
     const id: number = NaN;
     const result: string = pipe.transform(id);
-    expect(result).toBe('-');
+    expect(result).toBe(pipe.badNumberSymbol);
   });
 
   it('id less then 0 should return "-"', () => {
     const id: number = -1;
     const result: string = pipe.transform(id);
-    expect(result).toBe('-');
+    expect(result).toBe(pipe.badNumberSymbol);
   });
 
   it('if id is null should return "-"', () => {
     const id: number = null;
     const result: string = pipe.transform(id);
-    expect(result).toBe('-');
+    expect(result).toBe(pipe.badNumberSymbol);
   });
 });

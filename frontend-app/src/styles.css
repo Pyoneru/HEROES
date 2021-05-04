@@ -2,3 +2,18 @@ body {
   background-color: #2C4157;
   font-family: Arial;
 }
+
+table {
+  /* Center table */
+  margin-left: auto;
+  margin-right: auto;
+
+  /*Space from navigation*/
+  margin-top: 3%;
+
+  /*Fill width content to 95% */
+  width: 95%;
+
+  /*Remove spacing between columns*/
+  border-spacing: 0;
+}

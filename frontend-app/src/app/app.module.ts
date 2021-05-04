@@ -9,6 +9,7 @@ import { HeroListComponent } from './hero-list/hero-list.component';
 import {TestService} from "./services/test.service";
 import { EditHeroComponent } from './edit-hero/edit-hero.component';
 import { IdNaNPipe } from './pipe/id-na-n.pipe';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,11 +19,12 @@ import { IdNaNPipe } from './pipe/id-na-n.pipe';
     EditHeroComponent,
     IdNaNPipe,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    HeroRoutesModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        HeroRoutesModule,
+        FormsModule
+    ],
   providers: [TestService],
   bootstrap: [AppComponent]
 })

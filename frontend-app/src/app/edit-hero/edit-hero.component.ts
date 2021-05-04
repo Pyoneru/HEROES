@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Hero} from "../model/hero";
 
 @Component({
   selector: 'app-edit-hero',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditHeroComponent implements OnInit {
 
+  tableColumnId: string = "#";
+  tableColumnDetails: string = "Hero Details";
+
+  hero: Hero;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  saveHero() {
+
+  }
+
+  deleteHero() {
+
+  }
 }

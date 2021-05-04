@@ -1,26 +1,16 @@
-table {
-  /* Center table */
-  margin-left: auto;
-  margin-right: auto;
+/*Table hero list*/
 
-  /*Space from navigation*/
-  margin-top: 3%;
+/* Special CSS for first column*/
+.table-hero-list > tr > td:first-child {
+  /*Fill size to content*/
+  width: 1%;
+  white-space: nowrap;
 
-  /*Fill width content to 95% */
-  width: 95%;
-
-  /*Remove spacing between columns*/
-  border-spacing: 0;
-}
-
-/* Configuration for first row (title row) */
-.table-title{
-  background-color: #CCD0CD;
-  color: #2C4157;
+  padding-right: 20px;
 }
 
 /* Special CSS for last column*/
-tr > td:last-child {
+.table-hero-list > tr > td:last-child {
   /*Display from right side*/
   text-align: right;
 
@@ -29,27 +19,31 @@ tr > td:last-child {
   white-space: nowrap;
 }
 
-/* Special CSS for first column*/
-tr > td:first-child {
-  /*Fill size to content*/
-  width: 1%;
-  white-space: nowrap;
-
-  padding-right: 20px;
-}
 /*Config every row*/
-td {
+.table-hero-list > tr > td{
   color: #CCD0CD;
   padding: 15px;
   font-size: 20px;
 }
-/* Different config for first row (title row)*/
-.table-title > td{
-  color: #4D5D6C;
-  font-size: 16px;
+
+/*row-title*/
+
+/* Configuration for first row */
+.table-hero-list > tr:first-child > td {
+  background-color: #CCD0CD;
+  color: #2C4157;
 }
 
-button {
+/*Hero List picker*/
+
+.hero-list:hover{
+  background-color: #3D5268;
+  cursor: pointer;
+}
+
+/*Delete button*/
+
+.button-delete-hero {
   background-color: red;
   color: white;
   padding: 10px;
@@ -59,13 +53,8 @@ button {
   text-decoration: none;
 }
 
-button:hover{
+.button-delete-hero:hover{
   background-color: #D00;
-  cursor: pointer;
-}
-
-.hero-list:hover{
-  background-color: #3D5268;
   cursor: pointer;
 }
 

@@ -3,17 +3,18 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {AppComponent} from "../app.component";
 import {HeroListComponent} from "../hero-list/hero-list.component";
+import {EditHeroComponent} from "../edit-hero/edit-hero.component";
 
 const heroRoutes: Routes = [
   // Hero List path
   {
     path: '',
-    component: HeroListComponent // ToDo: Change Component for Hero List component
+    component: HeroListComponent
   },
   // New/Edit hero path
   {
     path: 'hero/:id',
-    component: AppComponent // ToDo: Change Component for New/Edit Hero component.
+    component: EditHeroComponent
   },
   // Error path
   {

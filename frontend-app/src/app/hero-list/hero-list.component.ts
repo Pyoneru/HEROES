@@ -1,7 +1,7 @@
 import {Component, DoCheck, OnInit} from '@angular/core';
 import {Hero} from "../model/hero";
-import {TestService} from "../services/test.service";
 import {Router} from "@angular/router";
+import {ApiService} from "../services/api.service";
 
 @Component({
   selector: 'app-hero-list',
@@ -22,11 +22,11 @@ export class HeroListComponent implements OnInit, DoCheck{
 
   /**
    * Inject service to CRUD operation for heroes and router to navigate
-   * @param test
+   * @param service
    * @param router
    */
   constructor(
-    private test: TestService,
+    private service: ApiService,
     private router: Router
   ) {}
 
@@ -34,7 +34,7 @@ export class HeroListComponent implements OnInit, DoCheck{
    * Load heroes from service
    */
   ngOnInit(): void {
-    this.test.getAll().then(data => {
+    this.service.getAll().then(data => {
       this.heroes = data
     });
   }
@@ -44,14 +44,19 @@ export class HeroListComponent implements OnInit, DoCheck{
    * @param hero
    */
   deleteHero(hero: Hero) {
-    this.test.delete(hero.id)
-      .then( hero => {
+    this.service.delete(hero.id)
+      .then( () => {
           console.log('Deleted hero', hero);
+          let index = this.heroes.indexOf(hero);
+          if(index > -1){
+            this.heroes.splice(index, 1);
+          }
+          this.heroes = this.heroes.filter(hero => {return hero != null}); // Clear list to avoid a error in console logs.
+          this.isDeleted = true;
       })
       .catch(error => console.log(error));
 
-    this.heroes = this.heroes.filter(hero => {return hero != null}); // Clear list to avoid a error in console logs.
-    this.isDeleted = true;
+
   }
 
   /**
@@ -75,7 +80,7 @@ export class HeroListComponent implements OnInit, DoCheck{
   ngDoCheck(): void {
     if(this.isDeleted){
       this.isDeleted = false;
-      this.test.getAll().then(data => {
+      this.service.getAll().then(data => {
         this.heroes = data
       });
     }

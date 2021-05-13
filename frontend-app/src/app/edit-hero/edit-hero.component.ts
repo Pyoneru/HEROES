@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Hero} from "../model/hero";
-import {TestService} from "../services/test.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {ApiService} from "../services/api.service";
 
 @Component({
   selector: 'app-edit-hero',
@@ -20,7 +20,7 @@ export class EditHeroComponent implements OnInit {
   // Hero object
   hero: Hero;
 
-  constructor(private service: TestService,
+  constructor(private service: ApiService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {}
 
@@ -70,7 +70,7 @@ export class EditHeroComponent implements OnInit {
   saveHero(): void {
     // Hero has id, then update hero with this id.
     if(this.hero.id){
-      this.service.update(this.hero.id, this.hero.name)
+      this.service.update(this.hero.id, this.hero)
         .then(hero => {
           this.hero = hero;
           console.log('Updated hero: ', hero);

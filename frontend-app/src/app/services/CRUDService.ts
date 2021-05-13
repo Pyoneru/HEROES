@@ -22,9 +22,9 @@ export interface CRUDService {
   /**
    * Return updated Hero
    * @param id
-   * @param name
+   * @param hero
    */
-  update(id: number, name: string): Promise<Hero>;
+  update(id: number, hero: Hero): Promise<Hero>;
 
   /**
    * Return deleted hero

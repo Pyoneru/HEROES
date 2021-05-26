@@ -11,7 +11,6 @@ import { IdNaNPipe } from './pipe/id-na-n.pipe';
 import {FormsModule} from "@angular/forms";
 import { ErrorPageComponent } from './error-page/error-page.component';
 import {ApiService} from "./services/api.service";
-import {BaseUrlInterceptor} from "./interceptor/base-url.interceptor";
 
 @NgModule({
   declarations: [
@@ -28,13 +27,6 @@ import {BaseUrlInterceptor} from "./interceptor/base-url.interceptor";
         HeroRoutesModule,
         FormsModule
     ],
-  providers: [ApiService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: BaseUrlInterceptor,
-      multi: true
-    }
-  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

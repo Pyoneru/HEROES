@@ -8,7 +8,7 @@ import {Hero} from "../model/hero";
 })
 export class ApiService implements CRUDService {
 
-  private baseEndpoint = '/heroes';
+  private baseEndpoint = '/api/heroes';
   private format = '.json';
 
   constructor(private http: HttpClient) {

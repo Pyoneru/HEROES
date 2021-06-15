@@ -1,13 +1,9 @@
-FROM ubuntu_symfony
+FROM niemczukpiotr/ubuntu_symfony
 
-WORKDIR /home/hero-app
-
-ADD . .
-
-#
-RUN apt-get install php-sqlite3 --yes
-RUN symfony server:ca:install
-
-CMD symfony serve
-
+COPY . /usr/src/app
+WORKDIR /usr/src/app
 EXPOSE 8000
+
+RUN apt-get install php-sqlite3 --yes
+
+ENTRYPOINT ["symfony", "serve"]
